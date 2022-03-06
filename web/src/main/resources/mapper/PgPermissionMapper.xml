@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pigs.pigsblog.mapper.PgPermissionMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.pigs.pigsblog.entity.PgPermission">
+        <id column="permission_id" property="permissionId" />
+        <result column="permission_describe" property="permissionDescribe" />
+        <result column="permission_permission" property="permissionPermission" />
+        <result column="permission_url" property="permissionUrl" />
+        <result column="permission_create_time" property="permissionCreateTime" />
+        <result column="permission_update_time" property="permissionUpdateTime" />
+        <result column="permission_state" property="permissionState" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        permission_id, permission_describe, permission_permission, permission_url, permission_create_time, permission_update_time, permission_state
+    </sql>
+
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pigs.pigsblog.mapper.PgUserFriendsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.pigs.pigsblog.entity.PgUserFriends">
+    <result column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="user_friends_id" property="userFriendsId" />
+        <result column="user_note" property="userNote" />
+        <result column="user_status" property="userStatus" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        user_id, user_friends_id, user_note, user_status
+    </sql>
+
+</mapper>

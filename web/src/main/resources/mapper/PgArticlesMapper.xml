@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pigs.pigsblog.mapper.PgArticlesMapper">
+
+    <!--  文章（博文）查询映射结果  -->
+    <resultMap id="pgArticlesMap" type="com.pigs.pigsblog.entity.PgArticles">
+        <id column="article_id" property="articleId"/>
+        <result column="user_id" property="userId"/>
+        <result column="article_title" property="articleTitle"/>
+        <result column="article_content" property="articleContent"/>
+        <result column="article_views" property="articleViews"/>
+        <result column="article_comment_count" property="articleCommentCount"/>
+        <result column="article_date" property="articleDate"/>
+        <result column="article_like_count" property="articleLikeCount"/>
+        <result column="article_like_count" property="articleLikeCount"/>
+        <result column="article_state" property="articleState"/>
+        <collection property="pgLabelsList" javaType="java.util.List" resultMap="pgLabelsMap"/>
+        <collection property="pgSortsList" javaType="java.util.List" resultMap="pgSortsMap"/>
+        <collection property="pgArticlesImgList" javaType="com.pigs.pigsblog.entity.PgArticlesImg"
+                    resultMap="pgArticlesImgMap"/>
+        <collection property="pgUsers" javaType="com.pigs.pigsblog.entity.PgUsers" resultMap="pgUsersMap"/>
+    </resultMap>
+
+    <!--  标签查询映射结果  -->
+    <resultMap id="pgLabelsMap" type="com.pigs.pigsblog.entity.PgLabels">
+        <id column="label_id" property="labelId"/>
+        <result column="label_name" property="labelName"/>
+        <result column="label_alias" property="labelAlias"/>
+        <result column="label_description" property="labelDescription"/>
+        <result column="label_state" property="labelState"/>
+    </resultMap>
+
+    <!--  分类查询映射结果  -->
+    <resultMap id="pgSortsMap" type="com.pigs.pigsblog.entity.PgSorts">
+        <id column="sort_id" property="sortId"/>
+        <result column="sort_name" property="sortName"/>
+        <result column="sort_alias" property="sortAlias"/>
+        <result column="sort_description" property="sortDescription"/>
+        <result column="parent_sort_id" property="parentSortId"/>
+        <result column="sort_state" property="sortState"/>
+    </resultMap>
+
+    <!-- 文章封面图 查询映射结果 -->
+    <resultMap id="pgArticlesImgMap" type="com.pigs.pigsblog.entity.PgArticlesImg">
+        <id column="img_id" property="imgId"/>
+        <result column="article_id" property="articleId"/>
+        <result column="img_url" property="imgUrl"/>
+        <result column="img_state" property="imgState"/>
+    </resultMap>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="pgUsersMap" type="com.pigs.pigsblog.entity.PgUsers">
+        <id column="user_id" property="userId"/>
+        <result column="user_ip" property="userIp"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_password" property="userPassword"/>
+        <result column="user_email" property="userEmail"/>
+        <result column="user_profile_photo" property="userProfilePhoto"/>
+        <result column="user_registration_time" property="userRegistrationTime"/>
+        <result column="user_birthday" property="userBirthday"/>
+        <result column="user_age" property="userAge"/>
+        <result column="user_telephone_number" property="userTelephoneNumber"/>
+        <result column="user_nickname" property="userNickname"/>
+        <result column="salt" property="salt"/>
+        <result column="user_state" property="userState"/>
+        <result column="user_sex" property="userSex"/>
+    </resultMap>
+
+    <!-- 文章 通用查询结果列 -->
+    <sql id="pgArticles_Column_List">
+        pg_articles.article_id, pg_users.user_id, article_title, article_content, article_views, article_comment_count, article_date, article_like_count
+    </sql>
+
+    <!--  查询文章列表  -->
+    <select id="queryPgArticles" resultMap="pgArticlesMap" parameterType="com.pigs.pigsblog.entity.PgArticles">
+        select pg_users.user_name,<include refid="pgArticles_Column_List"></include>,pg_labels.label_name,pg_sorts.sort_name,pg_articles_img.img_url
+        from pg_articles
+        left join pg_users on pg_users.user_id=pg_articles.user_id
+        left join pg_artitle_label_ref on pg_artitle_label_ref.article_id=pg_articles.article_id
+        left join pg_labels on pg_labels.label_id=pg_artitle_label_ref.label_id
+        left join pg_artitle_sort_ref on pg_artitle_sort_ref.article_id=pg_articles.article_id
+        left join pg_sorts on pg_sorts.sort_id=pg_artitle_sort_ref.sort_id
+        left join pg_articles_img on pg_articles_img.article_id=pg_articles.article_id
+        <where>
+            <if test="pgArticles.userId!=null&amp;&amp;pgArticles.userId!=&quot;&quot;">
+                 pg_users.user_id=#{pgArticles.userId}
+            </if>
+            <if test="pgArticles.articleId!=null&amp;&amp;pgArticles.articleId!=&quot;&quot;">
+                and  pg_articles.article_id=#{pgArticles.articleId}
+            </if>
+
+        </where>
+        order By article_date Desc
+    </select>
+
+
+
+
+    <!--  查询文章排行榜  -->
+    <select id="queryPgArticleViews" resultMap="pgArticlesMap" parameterType="com.pigs.pigsblog.entity.PgArticles">
+        select pg_users.user_name,<include refid="pgArticles_Column_List"></include>,pg_labels.label_name,pg_sorts.sort_name,pg_articles_img.img_url
+        from pg_articles
+        left join pg_users on pg_users.user_id=pg_articles.user_id
+        left join pg_artitle_label_ref on pg_artitle_label_ref.article_id=pg_articles.article_id
+        left join pg_labels on pg_labels.label_id=pg_artitle_label_ref.label_id
+        left join pg_artitle_sort_ref on pg_artitle_sort_ref.article_id=pg_articles.article_id
+        left join pg_sorts on pg_sorts.sort_id=pg_artitle_sort_ref.sort_id
+        left join pg_articles_img on pg_articles_img.article_id=pg_articles.article_id
+        order By article_views Desc  limit 1
+    </select>
+
+</mapper>

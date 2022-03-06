@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pigs.pigsblog.mapper.PgSortsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.pigs.pigsblog.entity.PgSorts">
+        <id column="sort_id" property="sortId" />
+        <result column="sort_name" property="sortName" />
+        <result column="sort_alias" property="sortAlias" />
+        <result column="sort_description" property="sortDescription" />
+        <result column="parent_sort_id" property="parentSortId" />
+        <result column="sort_state" property="sortState" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        sort_id, sort_name, sort_alias, sort_description, parent_sort_id
+    </sql>
+
+</mapper>

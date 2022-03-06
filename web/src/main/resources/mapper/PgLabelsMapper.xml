@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pigs.pigsblog.mapper.PgLabelsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.pigs.pigsblog.entity.PgLabels">
+        <id column="label_id" property="labelId" />
+        <result column="label_name" property="labelName" />
+        <result column="label_alias" property="labelAlias" />
+        <result column="label_description" property="labelDescription" />
+        <result column="label_state" property="labelState" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        label_id, label_name, label_alias, label_description
+    </sql>
+
+</mapper>

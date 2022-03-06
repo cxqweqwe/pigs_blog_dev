@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pigs.pigsblog.mapper.PgArticlesImgMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.pigs.pigsblog.entity.PgArticlesImg">
+        <id column="img_id" property="imgId" />
+        <result column="article_id" property="articleId" />
+        <result column="img_url" property="imgUrl" />
+        <result column="img_state" property="imgState" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        img_id, article_id, img_url, img_state
+    </sql>
+
+</mapper>

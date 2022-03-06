@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pigs.pigsblog.mapper.PgUsersMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="PgUsersMap" type="com.pigs.pigsblog.entity.PgUsers">
+        <id column="user_id" property="userId"/>
+        <result column="user_ip" property="userIp"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_password" property="userPassword"/>
+        <result column="user_email" property="userEmail"/>
+        <result column="user_profile_photo" property="userProfilePhoto"/>
+        <result column="user_registration_time" property="userRegistrationTime"/>
+        <result column="user_birthday" property="userBirthday"/>
+        <result column="user_age" property="userAge"/>
+        <result column="user_telephone_number" property="userTelephoneNumber"/>
+        <result column="user_nickname" property="userNickname"/>
+        <result column="salt" property="salt"/>
+        <result column="user_state" property="userState"/>
+        <result column="user_sex" property="userSex"/>
+        <collection property="pgRoleList" javaType="java.util.List" resultMap="PgRoleMap"/>
+    </resultMap>
+
+
+    <!-- 角色查询映射结果 -->
+    <resultMap id="PgRoleMap" type="com.pigs.pigsblog.entity.PgRole">
+        <id column="role_id" property="roleId"/>
+        <result column="role_name" property="roleName"/>
+        <result column="role_description" property="roleDescription"/>
+        <result column="role_create_time" property="roleCreateTime"/>
+        <result column="role_update_time" property="roleUpdateTime"/>
+        <result column="role_state" property="roleState"/>
+        <collection property="pgPermissionList" javaType="java.util.List" resultMap="PgPermissionMap"/>
+    </resultMap>
+
+    <!--  权限查询映射结果  -->
+    <resultMap id="PgPermissionMap" type="com.pigs.pigsblog.entity.PgPermission">
+        <id column="permission_id" property="permissionId"/>
+        <result column="permission_describe" property="permissionDescribe"/>
+        <result column="permission_permission" property="permissionPermission"/>
+        <result column="permission_url" property="permissionUrl"/>
+        <result column="permission_create_time" property="permissionCreateTime"/>
+        <result column="permission_update_time" property="permissionUpdateTime"/>
+        <result column="permission_state" property="permissionState"/>
+    </resultMap>
+
+
+    <!-- 通用查询结果列 -->
+    <sql id="PgUsers_List">
+        user_id, user_ip, user_name, user_password, user_email, user_profile_photo, user_registration_time, user_birthday, user_age, user_telephone_number, user_nickname, salt,user_state,user_sex,
+    </sql>
+
+    <!--登陆查询-->
+    <select id="queryByName" parameterType="String" resultMap="PgUsersMap">
+        select
+        <include refid="PgUsers_List"></include>
+        pg_permission.permission_url,pg_permission.permission_permission,pg_role.role_name from pg_users
+        left join pg_users_role_ref on pg_users_role_ref.users_id=pg_users.user_id
+        left join pg_role on pg_role.role_id=pg_users_role_ref.role_id
+        left join pg_permission_role_ref on pg_permission_role_ref.role_id=pg_role.role_id
+        left join pg_permission on  pg_permission.permission_id=pg_permission_role_ref.permission_id
+        where user_name=#{userName} and user_state=0
+    </select>
+
+
+
+</mapper>

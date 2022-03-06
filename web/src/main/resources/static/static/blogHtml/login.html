@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>登录</title>
+    <meta charset="utf-8">
+    <link href="../res/login/css/style.css" rel='stylesheet' type='text/css'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../ico/PIGS-LOGO.png">
+    <link rel="stylesheet" type="text/css" href="/static/res/layui/css/layui.css">
+
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+
+    <link rel="stylesheet" type="text/css" href="/static/res/hint/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/res/hint/css/message.css">
+</head>
+<body>
+<!-----start-main---->
+<div class="main">
+    <div class="login-form">
+        <h1>
+            <img src="../res/login/images/user.png" alt="" class="imgLogo"/>
+            <br/>
+            PIGS-BLOG
+        </h1>
+        <form class="layui-form">
+            <input type="text" class="text" name="userName" value="admin" placeholder="用户名" >
+            <input type="password" value="admin" name="userPassword" placeholder="密码" >
+            <div class="submit">
+                <button class="layui-btn" style="width: 98.2%;margin-bottom: 6%;font-size: 18px;border-radius: 5px;background-color: #ffced9" lay-submit="" lay-filter="changeUser" class="loginClass">登录</button>
+            </div>
+            <p><a href="#">忘记密码?</a></p>
+        </form>
+    </div>
+    <p style="color: white">Copyright &copy; <span class="year"></span>.Company PIGS All </p>
+</div>
+</div>
+<div style="display:none">
+    <script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script>
+</div>
+<script type="text/javascript" src="/static/res/layui/layui.js"></script>
+<script type="text/javascript" src="/static/res/js/login.js"></script>
+<script src="/static/res/hint/js/jquery.min.js"></script>
+<script src="/static/res/hint/js/message.js"></script>
+
+
+</body>
+</html>
