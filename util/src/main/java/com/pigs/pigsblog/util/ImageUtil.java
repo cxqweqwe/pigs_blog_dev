@@ -17,7 +17,9 @@ import java.util.List;
 public class ImageUtil {
 
 
-    // 图片默认缩放比率
+
+
+    // 图片默认缩放比率 方便
     private static final double DEFAULT_SCALE = 0.8d;
 
     // 缩略图后缀
