@@ -5,34 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="660e4597-e3f1-4ff7-a983-5d46f702da8b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/pigs-blog-dev.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/model.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/persistence/persistence.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/persistence/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pigs-blog.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/pigs/pigsblog/model/ResultFormat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/pigs/pigsblog/model/ResultFormatPaging.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/pigs/pigsblog/util/ComputerMonitorUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/pigs/pigsblog/util/ExceptionUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/pigs/pigsblog/util/ImageUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/pigs/pigsblog/util/PhoneNumBer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/pigs/pigsblog/util/RedisUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/pigs/pigsblog/util/ResultPagingUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/pigs/pigsblog/util/ResultUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/pigs/pigsblog/util/SecurityUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/pigs/pigsblog/util/TimeUtitl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/util.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/pigs/pigsblog/controller/PgArticlesImgController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,17 +38,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/model/src/main/java/com/pigs/pigsblog/entity" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/src/main/java/com/pigs/pigsblog/controller" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Desktop\pigs-blog-dev\pigs-blog-dev\model\src\main\java\com\pigs\pigsblog\entity" />
+      <recent name="C:\Users\Administrator\Desktop\pigs-blog-dev\pigs-blog-dev\web\src\main\java\com\pigs\pigsblog\controller" />
       <recent name="C:\Users\Administrator\Desktop\pigs-blog-dev\pigs-blog-dev\web\src\main\java\com\pigs\pigsblog" />
       <recent name="C:\Users\Administrator\Desktop\pigs-blog-dev\pigs-blog-dev\web\src\main\resources" />
-      <recent name="C:\Users\Administrator\Desktop\pigs-blog-dev\pigs-blog-dev\persistence\src\main\java\com\pigs\pigsblog\service\impl" />
-      <recent name="C:\Users\Administrator\Desktop\pigs-blog-dev\pigs-blog-dev\persistence\src\main\java\com\pigs\pigsblog\service" />
+      <recent name="C:\Users\Administrator\Desktop\pigs-blog-dev\pigs-blog-dev\persistence\src\main\java\com\pigs\pigsblog" />
+      <recent name="C:\Users\Administrator\Desktop\pigs-blog-dev\pigs-blog-dev\model\src\main\java\com\pigs\pigsblog\entity" />
     </key>
   </component>
   <component name="RunManager">
@@ -107,6 +81,7 @@
       <updated>1654576893319</updated>
       <workItem from="1654576895727" duration="1573000" />
       <workItem from="1654578486606" duration="1312000" />
+      <workItem from="1654580145349" duration="574000" />
     </task>
     <servers />
   </component>
@@ -123,11 +98,42 @@
             </State>
           </value>
         </entry>
+        <entry key="2">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
           </value>
         </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+        <entry key="2" value="TOOL_WINDOW" />
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
